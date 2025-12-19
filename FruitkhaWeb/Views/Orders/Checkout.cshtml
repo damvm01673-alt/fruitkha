@@ -1,0 +1,130 @@
+@model FruitkhaWeb.Models.Order
+@using FruitkhaWeb.Helpers
+
+@{
+    ViewData["Title"] = "Thanh toán";
+    var cart = Context.Session.GetObject<List<FruitkhaWeb.Models.CartItem>>("ShoppingCart") ?? new List<FruitkhaWeb.Models.CartItem>();
+    decimal subtotal = cart.Sum(x => x.Subtotal);
+    decimal shipping = subtotal >= 500000 ? 0 : 30000;
+    decimal total = subtotal + shipping;
+}
+
+<!-- breadcrumb -->
+<div class="breadcrumb-section breadcrumb-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 offset-lg-2 text-center">
+				<div class="breadcrumb-text">
+					<p>Tươi và Hữu cơ</p>
+					<h1>Thanh toán</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end breadcrumb -->
+
+<!-- checkout -->
+<div class="checkout-section mt-150 mb-150">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="checkout-accordion-wrap">
+					<div class="accordion" id="accordionExample">
+						<div class="card single-accordion">
+							<div class="card-header" id="headingOne">
+								<h5 class="mb-0">
+									<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+										Thông tin giao hàng
+									</button>
+								</h5>
+							</div>
+
+							<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+								<div class="card-body">
+									<div class="billing-address-form">
+										<form asp-action="Checkout" method="post">
+											<div class="form-group">
+												<label asp-for="CustomerName"></label>
+												<input asp-for="CustomerName" class="form-control" placeholder="Họ và tên" required />
+												<span asp-validation-for="CustomerName" class="text-danger"></span>
+											</div>
+											<div class="form-group">
+												<label asp-for="Email"></label>
+												<input asp-for="Email" class="form-control" placeholder="Email" type="email" required />
+												<span asp-validation-for="Email" class="text-danger"></span>
+											</div>
+											<div class="form-group">
+												<label asp-for="Phone"></label>
+												<input asp-for="Phone" class="form-control" placeholder="Số điện thoại" required />
+												<span asp-validation-for="Phone" class="text-danger"></span>
+											</div>
+											<div class="form-group">
+												<label asp-for="Address"></label>
+												<textarea asp-for="Address" class="form-control" placeholder="Địa chỉ giao hàng" rows="3" required></textarea>
+												<span asp-validation-for="Address" class="text-danger"></span>
+											</div>
+											<div class="form-group">
+												<label asp-for="Notes"></label>
+												<textarea asp-for="Notes" class="form-control" placeholder="Ghi chú đơn hàng (không bắt buộc)" rows="3"></textarea>
+											</div>
+											<div class="form-group">
+												<button type="submit" class="boxed-btn">Đặt hàng</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-4">
+				<div class="order-details-wrap">
+					<table class="order-details">
+						<thead>
+							<tr>
+								<th>Đơn hàng của bạn</th>
+								<th>Giá</th>
+							</tr>
+						</thead>
+						<tbody class="order-details-body">
+							<tr>
+								<td>Sản phẩm</td>
+								<td>Thành tiền</td>
+							</tr>
+							@foreach (var item in cart)
+							{
+								<tr>
+									<td>@item.ProductName x @item.Quantity</td>
+									<td>@item.Subtotal.ToString("N0")đ</td>
+								</tr>
+							}
+						</tbody>
+						<tbody class="checkout-details">
+							<tr>
+								<td>Tạm tính</td>
+								<td>@subtotal.ToString("N0")đ</td>
+							</tr>
+							<tr>
+								<td>Phí vận chuyển</td>
+								<td>@(shipping == 0 ? "Miễn phí" : shipping.ToString("N0") + "đ")</td>
+							</tr>
+							<tr>
+								<td><strong>Tổng cộng</strong></td>
+								<td><strong class="orange-text">@total.ToString("N0")đ</strong></td>
+							</tr>
+						</tbody>
+					</table>
+					<a asp-controller="Cart" asp-action="Index" class="boxed-btn black">Quay lại giỏ hàng</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end checkout -->
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
