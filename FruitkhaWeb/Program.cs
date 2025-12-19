@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using FruitkhaWeb.Data;
+using FruitkhaWeb.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -62,5 +63,8 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapRazorPages();
+
+// Initialize database and seed data
+await DbInitializer.Initialize(app.Services);
 
 app.Run();
