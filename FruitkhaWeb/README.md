@@ -56,9 +56,37 @@ Fruitkha là ứng dụng web bán trái cây tươi được xây dựng bằng
 ### Yêu cầu:
 - .NET 8.0 SDK
 - SQL Server (LocalDB hoặc SQL Server Express)
-- Visual Studio 2022 hoặc VS Code
+- **Microsoft Visual Studio 2022** (khuyến nghị) hoặc VS Code
 
-### Các bước:
+### Cách 1: Chạy với Microsoft Visual Studio 2022 (Khuyến nghị)
+
+1. **Clone repository**:
+```bash
+git clone https://github.com/damvm01673-alt/fruitkha.git
+```
+
+2. **Mở solution trong Visual Studio**:
+   - Mở Visual Studio 2022
+   - File → Open → Project/Solution
+   - Chọn file `Fruitkha.sln` trong thư mục root của repository
+
+3. **Restore packages**:
+   - Visual Studio sẽ tự động restore NuGet packages
+   - Hoặc: Right-click Solution → Restore NuGet Packages
+
+4. **Chạy application**:
+   - Chọn launch profile: **FruitkhaWeb** hoặc **IIS Express**
+   - Nhấn **F5** (Debug) hoặc **Ctrl+F5** (Without Debug)
+   - Database sẽ tự động được tạo và seed data lần đầu chạy
+
+5. **Truy cập ứng dụng**:
+   - Kestrel: https://localhost:7146 hoặc http://localhost:5083
+   - IIS Express: http://localhost:29473 hoặc https://localhost:44344
+   - Trang Admin: https://localhost:7146/Admin
+
+📖 **Xem hướng dẫn chi tiết**: [VISUAL_STUDIO_SETUP.md](../VISUAL_STUDIO_SETUP.md)
+
+### Cách 2: Chạy với .NET CLI
 
 1. **Clone repository**:
 ```bash
@@ -93,11 +121,9 @@ dotnet restore
 dotnet run
 ```
 
-Hoặc sử dụng Visual Studio: nhấn F5
-
 6. **Truy cập ứng dụng**:
-- Trang chủ: https://localhost:5001 hoặc http://localhost:5000
-- Trang Admin: https://localhost:5001/Admin
+- Trang chủ: https://localhost:7146 hoặc http://localhost:5083
+- Trang Admin: https://localhost:7146/Admin
 
 ## Tài khoản Admin mặc định
 
