@@ -4,8 +4,8 @@
 
 [![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?logo=dotnet)](https://dotnet.microsoft.com/)
 [![Visual Studio](https://img.shields.io/badge/Visual%20Studio-2022-5C2D91?logo=visual-studio)](https://visualstudio.microsoft.com/)
-[![ASP.NET Core](https://img.shields.io/badge/ASP.NET%20Core-8.0-512BD4)](https://docs.microsoft.com/en-us/aspnet/core/)
-[![Entity Framework](https://img.shields.io/badge/Entity%20Framework-8.0-512BD4)](https://docs.microsoft.com/en-us/ef/core/)
+[![ASP.NET Core](https://img.shields.io/badge/ASP.NET%20Core-8.0-512BD4)](https://learn.microsoft.com/en-us/aspnet/core/)
+[![Entity Framework](https://img.shields.io/badge/Entity%20Framework-8.0-512BD4)](https://learn.microsoft.com/en-us/ef/core/)
 
 ## 📋 Mục lục
 

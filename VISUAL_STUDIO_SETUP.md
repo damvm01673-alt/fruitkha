@@ -16,7 +16,7 @@
    - HOẶC SQL Server Developer Edition
 
 ### Phiên bản .NET:
-- .NET 8.0 SDK (cần cài đặt riêng nếu chưa có, download tại: https://dotnet.microsoft.com/download/dotnet/8.0)
+- .NET 8.0 SDK (cần cài đặt riêng nếu chưa có, download tại: https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 
 ## Cách mở project trong Visual Studio
 
