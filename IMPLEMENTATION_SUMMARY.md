@@ -191,13 +191,22 @@ FruitkhaWeb/
 ### Prerequisites
 - .NET 8.0 SDK
 - SQL Server (LocalDB or SQL Server Express)
+- **Microsoft Visual Studio 2022** (recommended) or VS Code
 
-### Steps
+### Option 1: Visual Studio 2022 (Recommended)
+1. Clone the repository
+2. Open `Fruitkha.sln` in Visual Studio 2022
+3. Press F5 to run (Visual Studio will restore packages automatically)
+4. Database will be created automatically on first run
+
+📖 **See detailed guide**: [VISUAL_STUDIO_SETUP.md](./VISUAL_STUDIO_SETUP.md)
+
+### Option 2: .NET CLI
 1. Clone the repository
 2. Navigate to FruitkhaWeb directory
 3. Run `dotnet restore`
 4. Run `dotnet run`
-5. Access application at https://localhost:5001
+5. Access application at https://localhost:7146
 
 ### Default Admin Account
 - Email: admin@fruitkha.com
