@@ -16,7 +16,7 @@
    - HOẶC SQL Server Developer Edition
 
 ### Phiên bản .NET:
-- .NET 8.0 SDK (thường đã được cài đặt cùng Visual Studio 2022)
+- .NET 8.0 SDK (cần cài đặt riêng nếu chưa có, download tại: https://dotnet.microsoft.com/download/dotnet/8.0)
 
 ## Cách mở project trong Visual Studio
 
@@ -313,9 +313,9 @@ Sau khi chạy application lần đầu, database sẽ được seed với:
 
 ## Tài liệu tham khảo
 
-- [Visual Studio Documentation](https://docs.microsoft.com/en-us/visualstudio/)
-- [ASP.NET Core Documentation](https://docs.microsoft.com/en-us/aspnet/core/)
-- [Entity Framework Core Documentation](https://docs.microsoft.com/en-us/ef/core/)
+- [Visual Studio Documentation](https://learn.microsoft.com/en-us/visualstudio/)
+- [ASP.NET Core Documentation](https://learn.microsoft.com/en-us/aspnet/core/)
+- [Entity Framework Core Documentation](https://learn.microsoft.com/en-us/ef/core/)
 
 ## Hỗ trợ
 
